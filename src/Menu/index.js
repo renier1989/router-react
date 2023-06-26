@@ -43,8 +43,8 @@ function Menu() {
             </NavLink>
           </li> */}
 
-          {routes.map((route)=>(
-            <li>
+          {routes.map((route,index)=>(
+            <li key={index}>
               <NavLink 
               style={({isActive})=>({color : isActive ? 'red' : 'green'})}
               to={route.to}
