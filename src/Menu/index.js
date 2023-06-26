@@ -5,44 +5,6 @@ function Menu() {
   return (
     <nav>
         <ul>
-          {/* es la forma mas basica para poder manejar la navegacion con <Link></Link> */}
-          {/* <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/blog">Blog</Link>
-          </li>
-          <li>
-            <Link to="/profile">Profile</Link>
-          </li> */}
-
-          {/* es una forma mas estilizada de manejar la navegacion porque posee una propiedad isActive y aplicar algunos estilos acorde a la ruta en la que estemos ubicados */}
-
-          {/* <li>
-            <NavLink 
-            className={({isActive}) => ''}
-            style={({isActive})=>({color : isActive ? 'red' : 'green'})}
-            to="/">
-              Home
-            </NavLink>
-          </li>
-          <li>
-            <NavLink 
-            className={({isActive}) => ''}
-            style={({isActive})=>({color : isActive ? 'red' : 'green'})}
-            to="/blog">
-              Blog
-            </NavLink>
-          </li>
-          <li>
-            <NavLink 
-            className={({isActive}) => ''}
-            style={({isActive})=>({color : isActive ? 'red' : 'green'})}
-            to="/profile">
-              Profile
-            </NavLink>
-          </li> */}
-
           {routes.map((route,index)=>(
             <li key={index}>
               <NavLink 
@@ -73,5 +35,13 @@ routes.push({
   to : '/profile',
   text : 'Profile',
 });
-
+routes.push({
+  to : '/login',
+  text : 'Login',
+});
+routes.push({
+  to : '/logout',
+  text : 'Logout',
+});
+  
 export  {Menu}

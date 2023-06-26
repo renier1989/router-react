@@ -4,6 +4,8 @@ import { BlogPage } from './BlogPage';
 import { ProfilePage } from './ProfilePage';
 import { Menu } from './Menu';
 import { BlogPost } from './BlogPage/BlogPost.js';
+import { LoginPage } from './Login/LoginPage';
+import { LogoutPage } from './Login/LogoutPage';
 
 
 function App() {
@@ -19,7 +21,9 @@ function App() {
           <Route path="/blog" element={<BlogPage />} >
             <Route path=":slug" element={<BlogPost />} />
           </Route>
-          
+
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/logout" element={<LogoutPage />} />
           <Route path="/profile" element={<ProfilePage />} />
           
           <Route path="*" element={<p> Not Found!</p>} />   {/* este me dira que si ingreso a una ruta que no este definida muestro algo opcional importante , esta tiene que estar difinida al final de todas las rutas validas */}
