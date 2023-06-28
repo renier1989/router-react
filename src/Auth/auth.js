@@ -17,7 +17,7 @@ function AuthProvider ({children}){
     const navigate = useNavigate();
     const [user , setUser] = React.useState(null);  //esto es un estado para poder manipular los datos del usuario , null quiere decir que no hay usuario autenticado
     
-    console.log(location);
+    // console.log(location);
     let from = location.state?.from?.pathname || '/';
     
     // esta funcion es para poder setear el dato del username, y asi poder asignar o rellenar la variable auth y el estado user ,con lo que escribio el usuario
