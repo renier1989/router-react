@@ -22,7 +22,9 @@ function AuthProvider ({children}){
     
     // esta funcion es para poder setear el dato del username, y asi poder asignar o rellenar la variable auth y el estado user ,con lo que escribio el usuario
     const login = ({username}) => {
-        const isAdmin = AdminList.find(admin => admin === username); // aqui lo que hago es buscar en la lista de admin si el nombre que escribio la peronsa esta y devolvera TRUE, esto lo seteo como una propiedad del estado user para poder usarlo en los componente donde necesite
+        const isAdmin = AdminList.includes(username); 
+
+        // const isAdmin = AdminList.find(admin => admin === username); // aqui lo que hago es buscar en la lista de admin si el nombre que escribio la peronsa esta y devolvera TRUE, esto lo seteo como una propiedad del estado user para poder usarlo en los componente donde necesite
         setUser({username, isAdmin}); // seteo lo que el usuario haya escrito como username
         // navigate('/profile'); // luego le digo que me navegue a la pagina del profile.
         navigate(from , {replae : true}); // luego le digo que me navegue a la pagina del profile.

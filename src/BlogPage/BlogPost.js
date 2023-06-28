@@ -1,6 +1,6 @@
 import React from 'react';
 import {postdata} from '../Constant/postdata'
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../Auth/auth';
 
 function BlogPost() {
@@ -10,6 +10,10 @@ function BlogPost() {
     const onGoingBack = () => {
         navigate('/blog');
     };
+    const onEditPost = ({slug}) =>{
+      console.log(slug);
+      navigate(`/blog/${slug}/edit`);
+    }
     const auth = useAuth(); 
 
     // con eso hago una validacion para que identificar si el usuario que esta autenticado es Admin o si es el autor de post.
@@ -21,7 +25,8 @@ function BlogPost() {
         <button onClick={onGoingBack}>Return</button>
         {/* hago la validacion para mostrar el boton fake para editar los post  */}
         {doActions && (
-            <button>Edit Post</button>
+          <Link to={'edit'}>Editar</Link>
+            // <button onClick={onEditPost(blogpost.slug)}>Edit Post</button>
         )}
         <p>{blogpost.author}</p>
         <p>{blogpost.content}</p>

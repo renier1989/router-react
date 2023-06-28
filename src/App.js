@@ -4,6 +4,7 @@ import { BlogPage } from "./BlogPage";
 import { ProfilePage } from "./ProfilePage";
 import { Menu } from "./Menu";
 import { BlogPost } from "./BlogPage/BlogPost.js";
+import { BlogPostEdit } from "./BlogPage/BlogPostEdit.js";
 import { LoginPage } from "./Login/LoginPage";
 import { LogoutPage } from "./Login/LogoutPage";
 import { AuthProvider, AuthRouteProtect } from "./Auth/auth";
@@ -24,6 +25,11 @@ function App() {
             {/* con esto vamos a poder hacer uso del Outlet, quiere decir que el componente BlogPage (el papa) , va a poder renderizar en el mismo lo que tenga el BlogPost en el lugar que llamemos al componente <Outlet /> */}
             <Route path="/blog" element={<BlogPage />}>
               <Route path=":slug" element={<BlogPost />} />
+              <Route path=":slug/edit" element={
+                <AuthRouteProtect>
+                  <BlogPostEdit />
+                </AuthRouteProtect>
+              } />              
             </Route>
             <Route path="/login" element={<LoginPage />} />
             <Route path="/logout" element={
