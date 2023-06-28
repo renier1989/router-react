@@ -17,5 +17,11 @@ postdata.push({
   content : 'Lorem Ipsum es simplemente un texto ficticio de la industria de la impresión y la composici.',
   author : 'Vargas Josue'
 });
+postdata.push({
+  title : 'Quiere aprender Python ?',
+  slug : 'quieres-aprender-python',
+  content : 'Lorem Ipsum es simplemente un texto ficticio de la industria de la impresión y la composici.',
+  author : 'josue'
+});
 
 export {postdata}
