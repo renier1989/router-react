@@ -1,5 +1,5 @@
 import React from "react";
-import {useNavigate} from 'react-router-dom';
+import {useNavigate, Navigate} from 'react-router-dom';
 
 // EN ESTE ARCHIVO CREO UN CONTEXTO PARA PODER MANEJAR LA INFORMACIN DE LOS USUARIO CUANDO SE AUTENTICAN,
 // ESTO ES SOLO UNA SIMULACION DE AUTENTICACION, NO ES UN PROCESO REAL ES UN FAKEAUTH
@@ -44,8 +44,19 @@ function useAuth(){
     return auth;
 }
 
+// esto es un componente que se usa para proteger las rutas si es que no tiene a un usuario autenticado y hacerle un redirect a otra pagina
+function AuthRouteProtect (props){
+    const auth = React.useContext(AuthContext);
+    if(!auth.user){
+        return <Navigate to="/login" />
+    }else{
+        return props.children
+    }
+}
+
 // aqui se hace una exportacion de multiples propiedad y funciones para ser consumidad por los demas componentes
 export {
     AuthProvider,
     useAuth,
+    AuthRouteProtect,
 };

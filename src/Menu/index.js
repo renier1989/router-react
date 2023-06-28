@@ -9,6 +9,7 @@ function Menu() {
         <ul>
           {routes.map((route,index)=>{
             if(route.private && !auth.user) return null;
+            if(route.to === '/login' && auth.user) return null;
 
             return(
             <li key={index}>

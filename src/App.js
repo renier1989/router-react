@@ -6,7 +6,8 @@ import { Menu } from "./Menu";
 import { BlogPost } from "./BlogPage/BlogPost.js";
 import { LoginPage } from "./Login/LoginPage";
 import { LogoutPage } from "./Login/LogoutPage";
-import { AuthProvider } from "./Auth/auth";
+import { AuthProvider, AuthRouteProtect } from "./Auth/auth";
+
 
 function App() {
   return (
@@ -25,8 +26,18 @@ function App() {
               <Route path=":slug" element={<BlogPost />} />
             </Route>
             <Route path="/login" element={<LoginPage />} />
-            <Route path="/logout" element={<LogoutPage />} />
-            <Route path="/profile" element={<ProfilePage />} />
+            <Route path="/logout" element={
+              // con esto protejo el componente y la ruta de mostrarse si es que no hay un usuario autenticado
+              <AuthRouteProtect>
+                <LogoutPage />
+              </AuthRouteProtect>
+            } />
+            <Route path="/profile" element={
+              // con esto protejo el componente y la ruta si es que el usuario no esta autenticado 
+              <AuthRouteProtect>
+                <ProfilePage />
+              </AuthRouteProtect>
+            } />
             <Route path="*" element={<p> Not Found!</p>} />
             {/* este me dira que si ingreso a una ruta que no este definida muestro algo opcional importante , esta tiene que estar difinida al final de todas las rutas validas */}
           </Routes>
